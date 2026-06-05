@@ -1,0 +1,6 @@
+# Configuración local (Contiene contraseñas de BD)
+config/config.local.php
+
+# Archivos de sistema y logs
+*.log
+.DS_Store

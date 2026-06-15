@@ -1,0 +1,632 @@
+/* =========================================
+   VARIABLES GLOBALES DEL PROYECTO
+   Sobrescribe colores de Bootstrap 5
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap');
+
+:root {
+    /* ===== Colores sobreescritos de Bootstrap ===== */
+    --bs-primary: #221C35;
+    /*Header, botones principales, enlaces, acentos*/
+    --bs-secondary: #F9FAFB;
+    /*Fondo general de la app detrás de cards*/
+    --bs-success: #5CB244;
+    /*Confirmaciones*/
+    --bs-danger: #A41E34;
+    /*Alertas, errores*/
+    --bs-warning: #DB912F;
+    /*Comunicados importantes, incidencias en curso, avisos*/
+    --bs-info: #ECECF0;
+    /*Fondo secundario, areas informativas*/
+    --bs-light: #FFFFFF;
+    /*Fondo principal de la app y fondo tarjetas*/
+    --bs-dark: #121111;
+    /*Texto principal*/
+
+    /* ===== Colores personalizados se usan como clases en css===== */
+    --color-fondo-formularios: #F3F3F5;
+    /*Fondo inputs formularios*/
+    --color-texto: #565656;
+    /*Texto secundario y descripciones*/
+    --color-borde: #e0e0e0;
+    --color--hover: #E9EBEF;
+    /*Hover en botones ghost/outline*/
+
+    /* ===== Tipografías ===== */
+    --fuente-base: 'Lato', sans-serif;
+    /* para h1, h2, h3*/
+    --fuente-titulos: 'Montserrat', sans-serif;
+    /*body, parrafos, labels, botones, inputs*/
+
+    /* ===== Espaciados ===== */
+    --espacio-xs: 4px;
+    --espacio-sm: 8px;
+    --espacio-md: 16px;
+    --espacio-lg: 24px;
+    --espacio-xl: 32px;
+
+    /* ===== Bordes ===== */
+    --radio-sm: 4px;
+    --radio-md: 8px;
+    --radio-lg: 12px;
+
+    /* ===== Sombras ===== */
+    --sombra-suave: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --sombra-media: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================
+   SOBREESCRITURA DEL COLOR AZUL DE BOOTSTRAP (PRIMARY)
+   Asegura que se use el color de la marca en todos los componentes
+   ========================================= */
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    color: #FFFFFF !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #382f5c !important;
+    /* Tono más claro para el hover */
+    border-color: #382f5c !important;
+}
+
+.btn-outline-primary {
+    color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--bs-primary) !important;
+    color: #FFFFFF !important;
+}
+
+/* =========================================
+   CORRECCIÓN DEFINITIVA: ALERTAS E INSIGNIAS (MODO CLARO)
+   Evita el azul clarito por defecto de Bootstrap 5 en los mensajes 
+   como el de "Ya has participado" en Votaciones.
+   ========================================= */
+.alert-primary,
+.alert-info {
+    --bs-alert-bg: var(--bs-primary) !important;
+    --bs-alert-color: #FFFFFF !important;
+    --bs-alert-border-color: var(--bs-primary) !important;
+}
+
+.badge.bg-info {
+    background-color: var(--bs-primary) !important;
+    color: #FFFFFF !important;
+}
+
+/* Ajustes específicos para dispositivos ultra-estrechos (como el Fold plegado) */
+@media (max-width: 400px) {
+    .navbar {
+        padding-left: var(--espacio-sm) !important;
+        padding-right: var(--espacio-sm) !important;
+    }
+
+    /* Reducimos el logo y el texto de la marca */
+    .navbar img {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .navbar span.fs-5 {
+        font-size: 1rem !important;
+    }
+
+    /* El nombre de la vivienda suele ser largo ("Planta 2-1B"), lo limitamos */
+    .dropdown a span {
+        max-width: 70px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* =========================================
+   MODO OSCURO (Dark Mode)
+   Se activa cuando <html> tiene data-theme="dark"
+   ========================================= */
+[data-theme="dark"] {
+    /* Re-definimos las variables de Bootstrap para el modo oscuro.
+       Nota: No tocamos --bs-primary para que el Header (Topbar) 
+       mantenga su color original como solicitaste. */
+
+    --bs-light: #1E1E2E;
+    /* Fondo de tarjetas y sidebar */
+    --bs-secondary: #11111B;
+    /* Fondo general del body */
+    --bs-dark: #CDD6F4;
+    /* Texto principal blanco/azulado */
+
+    --color-fondo-formularios: #313244;
+    --color-texto: #A6ADC8;
+    --color-borde: #313244;
+    --color--hover: #45475A;
+
+    /* Forzamos a Bootstrap a usar nuestros textos oscuros globalmente */
+    --bs-body-color: var(--bs-dark);
+    color: var(--bs-dark);
+}
+
+/* =========================================
+   ADAPTACIÓN DE COMPONENTES (MODO OSCURO)
+   ========================================= */
+
+/* Forzamos el fondo del body y main cuando usan la clase bg-light de Bootstrap */
+[data-theme="dark"] body.bg-light,
+[data-theme="dark"] main.bg-light {
+    background-color: var(--bs-secondary) !important;
+}
+
+/* Aseguramos que los botones primarios sean visibles y contrasten en el Login */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-brand {
+    background-color: #4c407a !important;
+    /* Un tono ligeramente más vibrante */
+    color: #FFFFFF !important;
+    border: none;
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-primary:focus {
+    background-color: #5d4f96 !important;
+    /* Hover un poco más claro en oscuro */
+}
+
+[data-theme="dark"] .bg-primary {
+    background-color: #4c407a !important;
+}
+
+[data-theme="dark"] .text-primary {
+    color: #b5a8d5 !important;
+    /* Morado claro para que resalte en el modal oscuro */
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    color: #b5a8d5 !important;
+    border-color: #4c407a !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover,
+[data-theme="dark"] .btn-outline-primary:focus {
+    background-color: #4c407a !important;
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .text-muted {
+    color: var(--color-texto) !important;
+}
+
+[data-theme="dark"] .text-dark {
+    color: var(--bs-dark) !important;
+}
+
+/* Arreglo para que las tarjetas y títulos hereden el color blanco */
+[data-theme="dark"] .card,
+[data-theme="dark"] .metric-value,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--bs-dark) !important;
+}
+
+/* Filtro CSS para invertir el color del logo de oscuro a blanco */
+[data-theme="dark"] .logo-adaptable {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+/* CORRECCIÓN: Hover de los botones de navegación en modo oscuro */
+[data-theme="dark"] .nav-card:hover {
+    border-color: var(--bs-dark) !important;
+    color: #FFFFFF !important;
+    /* Forzamos a que el texto sea blanco puro al pasar el ratón */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4) !important;
+    /* Una sombra un poco más fuerte para que resalte en la oscuridad */
+}
+
+/* CORRECCIÓN: Hover de los enlaces del menú desplegable en modo oscuro */
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item:focus {
+    background-color: var(--color--hover) !important;
+    /* Un gris oscuro suave */
+    color: #FFFFFF !important;
+    /* Texto blanco puro para máximo contraste */
+}
+
+/* Y ya que estamos, arreglamos también los iconos dentro del dropdown en el hover */
+[data-theme="dark"] .dropdown-item:hover * {
+    color: #FFFFFF !important;
+}
+
+/* ===== HOVER PARA MENÚ DESPLEGABLE (MODO CLARO / GENERAL) ===== */
+.dropdown-item {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--color--hover) !important;
+    /* Nuestro gris claro */
+    border-radius: var(--radio-sm);
+    /* Queda más moderno con bordes redondeados */
+}
+
+/* Hover especial para el botón de Cerrar Sesión en Modo Claro */
+.dropdown-item.text-danger:hover {
+    background-color: #ffeef0 !important;
+    /* Fondo rojizo muy suave */
+    color: var(--bs-danger) !important;
+}
+
+/* ===== HOVER PARA BOTONES OUTLINE-LIGHT EN EL TOPBAR ===== */
+/* Evita el efecto "blanco sobre blanco" y le da un toque semitransparente premium */
+.navbar .btn-outline-light:hover,
+.navbar .btn-outline-light:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    /* Fondo blanco casi transparente */
+    color: #FFFFFF !important;
+    /* Mantenemos el texto blanco */
+    border-color: #FFFFFF !important;
+    /* Iluminamos un poco el borde */
+}
+
+/* Feedback visual para acciones destructivas en modo oscuro */
+[data-theme="dark"] .dropdown-item.text-danger:hover,
+[data-theme="dark"] .dropdown-item.text-danger:focus {
+    background-color: rgba(164, 30, 52, 0.2) !important;
+    /* Fondo rojizo muy oscuro y sutil */
+    color: #ff7383 !important;
+    /* Rojo/rosado claro para que contraste perfecto con el fondo */
+}
+
+[data-theme="dark"] .dropdown-item.text-danger:hover * {
+    color: #ff7383 !important;
+    /* Aseguramos que el icono también cambie de color */
+}
+
+/* CORRECCIÓN: Botón de cerrar (X) en el menú móvil para el Modo Oscuro */
+[data-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%) !important;
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .btn-close:hover {
+    opacity: 1;
+    /* Que brille un poco más al pasar el dedo/ratón */
+}
+
+.dropdown-divider {
+    opacity: 1 !important;
+    /* Quitamos la transparencia de Bootstrap */
+    border-top: 1px solid var(--color-borde) !important;
+    margin: 0.5rem 0;
+}
+
+[data-theme="dark"] .dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    /* Una línea sutil pero visible */
+}
+
+/* Arreglo para la zona de Bienvenida en Modo Oscuro */
+[data-theme="dark"] .h4,
+[data-theme="dark"] h2 {
+    color: #FFFFFF !important;
+    /* Blanco puro para el nombre del usuario */
+}
+
+[data-theme="dark"] .text-muted.small {
+    color: #A6ADC8 !important;
+    /* Gris claro azulado para la descripción */
+}
+
+[data-theme="dark"] .card {
+    background-color: var(--bs-light) !important;
+    /* Usa el fondo oscuro de tarjeta */
+    border: 1px solid var(--color-borde) !important;
+}
+
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .card h6 {
+    color: var(--bs-dark) !important;
+    /* Asegura que los números y textos dentro de mini-cards se vean */
+}
+
+/* Estilo para el botón Cerrar Sesión en esa zona específica */
+[data-theme="dark"] .btn-outline-danger {
+    color: #ff7383 !important;
+    border-color: #ff7383 !important;
+}
+
+[data-theme="dark"] .btn-outline-danger:hover {
+    background-color: rgba(255, 115, 131, 0.1) !important;
+    color: #ff7383 !important;
+}
+
+[data-theme="dark"] .login-card-custom,
+[data-theme="dark"] .register-card-custom {
+    background-color: var(--bs-light);
+    border: 1px solid var(--color-borde);
+}
+
+/* =========================================
+   REFUERZO DE COMPONENTES ESPECÍFICOS
+   ========================================= */
+
+[data-theme="dark"] .text-dark,
+[data-theme="dark"] .form-label,
+[data-theme="dark"] h1,
+[data-theme="dark"] p:not(.text-primary) {
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .custom-input {
+    color: #FFFFFF !important;
+}
+
+/* =========================================
+   ADAPTACIÓN DE VOTACIONES Y ACORDEONES
+   ========================================= */
+[data-theme="dark"] .card-header.bg-white,
+[data-theme="dark"] .card-body {
+    background-color: var(--bs-light) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .card-body.border-top {
+    border-top-color: var(--color-borde) !important;
+}
+
+/* Estilos para Acordeones (Listas desplegables de comunicados) */
+[data-theme="dark"] .accordion-item {
+    background-color: var(--bs-light) !important;
+    border-color: var(--color-borde) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .accordion-button {
+    background-color: var(--bs-light) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+/* Ajuste para el resumen de participación (el cuadro pequeño) */
+[data-theme="dark"] .bg-light.border.rounded-3.small {
+    background-color: var(--color-fondo-formularios) !important;
+    border-color: var(--color-borde) !important;
+    color: var(--bs-dark) !important;
+}
+
+/* Ajuste para Modales y Formularios en Modo Oscuro */
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-footer,
+[data-theme="dark"] .modal-body {
+    background-color: var(--bs-light) !important;
+    border-color: var(--color-borde) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    background-color: var(--color-fondo-formularios) !important;
+    border-color: var(--color-borde) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* =========================================
+   ADAPTACIÓN DE LISTAS Y TABLAS (MODO OSCURO)
+   Ideal para Historial de Avisos y Lista de Vecinos
+   ========================================= */
+[data-theme="dark"] .list-group-item {
+    background-color: var(--bs-light) !important;
+    border-color: var(--color-borde) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .table {
+    color: var(--bs-dark) !important;
+    border-color: var(--color-borde) !important;
+}
+
+[data-theme="dark"] .table th,
+[data-theme="dark"] .table td {
+    background-color: var(--bs-light) !important;
+    border-color: var(--color-borde) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .table-hover > tbody > tr:hover > * {
+    background-color: var(--color--hover) !important;
+    color: var(--bs-dark) !important;
+}
+
+/* =========================================
+   MEJORAS DE CONTRASTE PARA MENSAJES DE ESTADO
+   ========================================= */
+[data-theme="dark"] .badge.bg-info {
+    background-color: rgba(236, 236, 240, 0.1) !important;
+    /* Usamos el color info con transparencia para que sea oscuro */
+    color: var(--bs-dark) !important;
+    /* Texto claro */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .alert-warning {
+    background-color: rgba(219, 145, 47, 0.1) !important;
+    /* Ajuste para el aviso de votación cerrada */
+    color: #ffb86c !important;
+    /* Un tono naranja claro para legibilidad */
+    border-color: rgba(219, 145, 47, 0.2) !important;
+}
+
+/* =========================================
+   ADAPTACIÓN DE PESTAÑAS (NAV-TABS)
+   ========================================= */
+[data-theme="dark"] .nav-tabs {
+    border-bottom-color: var(--color-borde) !important;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link {
+    color: var(--color-texto) !important;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link:hover {
+    border-color: transparent transparent var(--color-borde) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link.active {
+    background-color: var(--bs-light) !important;
+    color: var(--bs-dark) !important;
+    border-color: var(--color-borde) var(--color-borde) transparent !important;
+}
+
+/* =========================================
+   FONDOS CLAROS/BLANCOS Y FRANJAS HORARIAS
+   ========================================= */
+[data-theme="dark"] .bg-white {
+    background-color: var(--bs-light) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .bg-light:not(body):not(main) {
+    background-color: var(--color-fondo-formularios) !important;
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .btn-check:checked + .btn-outline-primary,
+[data-theme="dark"] .btn-check:active + .btn-outline-primary {
+    background-color: #4c407a !important;
+    color: #FFFFFF !important;
+    border-color: #4c407a !important;
+}
+
+/* =========================================
+   ANIMACIONES Y UTILIDADES (FORO)
+   ========================================= */
+@keyframes flash-highlight {
+    0% { box-shadow: 0 0 0 0 transparent; }
+    15% { box-shadow: 0 0 0 4px var(--bs-primary); }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+.highlight-flash {
+    animation: flash-highlight 2s ease-out;
+}
+
+/* =========================================
+   UTILIDADES GLOBALES Y FORO (BOOTSTRAP EXT)
+   ========================================= */
+.font-title { font-family: var(--fuente-titulos) !important; }
+.bg-fondo { background-color: var(--color-fondo-formularios) !important; }
+.bg-soft { background-color: var(--color--hover) !important; }
+.border-custom { border-color: var(--color-borde) !important; border-style: solid; border-width: 1px; }
+
+.line-clamp-2 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+.ws-pre-wrap { white-space: pre-wrap !important; }
+.max-w-200 { max-width: 200px !important; }
+.lh-14 { line-height: 1.4 !important; }
+
+.icon-box-lg { width: 64px !important; height: 64px !important; }
+.icon-box-md { width: 40px !important; height: 40px !important; }
+.avatar-md { width: 42px !important; height: 42px !important; min-width: 42px !important; flex-shrink: 0 !important; font-size: 1rem !important; line-height: 1 !important; }
+.avatar-sm { width: 34px !important; height: 34px !important; min-width: 34px !important; flex-shrink: 0 !important; font-size: 0.8rem !important; line-height: 1 !important; }
+.badge-sm { font-size: 0.65rem !important; padding: 0.2em 0.4em !important; }
+.text-xs { font-size: 0.75rem !important; }
+.text-sm-custom { font-size: 0.85rem !important; }
+
+
+/* =========================================
+   ARREGLO PARA EL INPUT DE SUBIR ARCHIVOS (FILE)
+========================================= */
+[data-theme="dark"] .form-control::file-selector-button {
+    background-color: var(--bs-light) !important; /* Fondo del botón adaptado al modo oscuro */
+    color: var(--bs-dark) !important; /* Texto claro legible */
+    border-right: 1px solid var(--color-borde) !important; /* Separador sutil */
+}
+
+/* Efecto hover para el botón de seleccionar archivo */
+[data-theme="dark"] .form-control:hover::file-selector-button {
+    background-color: var(--color--hover) !important;
+}
+
+/* =========================================
+   MODO OSCURO (Dark Mode)
+   Se activa cuando <html> tiene data-theme="dark"
+========================================= */
+[data-theme="dark"] {
+    --bs-light: #1E1E2E;      /* Fondo de tarjetas y sidebar */
+    --bs-secondary: #11111B;  /* Fondo general del body */
+    --bs-dark: #CDD6F4;       /* Texto principal blanco/azulado */
+    --color-fondo-formularios: #313244;
+    --color-texto: #A6ADC8;
+    --color-borde: #313244;
+    --color--hover: #45475A;
+
+    /* Forzamos a Bootstrap a usar nuestros textos oscuros globalmente */
+    --bs-body-color: var(--bs-dark);
+    color: var(--bs-dark);
+
+    /* ✨ LA LÍNEA MÁGICA PARA LOS CALENDARIOS NATIVOS ✨ */
+    color-scheme: dark;
+}
+
+/* =========================================
+   DASHBOARD PANEL PRESI - COLORES EXACTOS
+   ========================================= */
+.banner-presi-card { min-height: 200px; }
+.banner-presi-img { filter: brightness(0.6); }
+.glass-icon-48 { width: 48px; height: 48px; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); }
+.text-shadow-main { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.text-shadow-sub { text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+.font-titulos { font-family: var(--fuente-titulos) !important; }
+
+/* Grid de iconos (Tamaño y fondos originales) */
+.icon-wrap-64 { width: 64px; height: 64px; }
+.bg-icon-green { background-color: rgba(92, 178, 68, 0.1); }
+.bg-icon-purple { background-color: rgba(111, 66, 193, 0.1); }
+.txt-icon-purple { color: #6f42c1 !important; }
+.bg-icon-dark { background-color: rgba(34, 28, 53, 0.1); }
+.bg-icon-teal { background-color: rgba(32, 201, 151, 0.1); }
+.txt-icon-teal { color: #20c997 !important; }
+.bg-icon-warning { background-color: rgba(219, 145, 47, 0.1); }
+.bg-icon-red { background-color: rgba(164, 30, 52, 0.1); }
+.badge-xs { font-size: 0.7rem; }

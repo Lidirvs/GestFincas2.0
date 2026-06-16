@@ -1,4 +1,4 @@
-GestFincas es una aplicación web desarrollada en PHP bajo el patrón de arquitectura MVC (Modelo-Vista-Controlador). Permite la gestión de comunidades de vecinos, facilitando la administración de viviendas, usuarios (vecinos y presidentes) y el control de accesos mediante un sistema de validación por códigos.
+GestFincas 2.0 es una aplicación web desarrollada en PHP bajo el patrón de arquitectura MVC (Modelo-Vista-Controlador). Permite la gestión de comunidades de vecinos, facilitando la administración de viviendas, usuarios (vecinos y presidentes) y el control de accesos mediante un sistema de validación por códigos.
 
 🚀 Requisitos Previos
 Para ejecutar este proyecto en tu entorno local, necesitarás tener instalado:
@@ -13,8 +13,8 @@ Sigue estos pasos exactamente en orden para desplegar el proyecto en tu máquina
 Paso 1: Descargar el proyecto
 Abre tu terminal o consola.
 Navega hasta la carpeta pública de tu servidor local (por ejemplo, htdocs en XAMPP o www en WAMP).
-Clona el repositorio ejecutando:
-git clone [https://github.com/tu-usuario/JR_M26_ComunidadVecinos.git](https://github.com/tu-usuario/JR_M26_ComunidadVecinos.git)
+Clona el repositorio ejecutando (asegúrate de reemplazar `tu-usuario` y `GestFincas2.0` con los datos de tu repositorio):
+git clone https://github.com/tu-usuario/GestFincas2.0.git
 (Si no usas Git, simplemente descarga el ZIP del proyecto y descomprímelo en esa misma carpeta).
 
 Paso 2: Crear y configurar la Base de Datos
@@ -34,8 +34,8 @@ PHP
 
 'localhost', // o 127.0.0.1 'db' => 'gestfincas', // Nombre de la base de datos 'user' => 'root', // Tu usuario de MySQL 'pass' => '', // Tu contraseña de MySQL 'charset' => 'utf8mb4', ]; ?>
 Paso 4: Arrancar la aplicación
-Abre tu navegador web. Accede a la ruta pública del proyecto. Dependiendo del nombre de la carpeta, la URL será algo como: http://localhost/JR_M26_ComunidadVecinos-main/public/index.php
-¡Listo! Deberías ver la pantalla de inicio de sesión de GestFincas.
+Abre tu navegador web. Accede a la ruta pública del proyecto. Dependiendo del nombre de la carpeta, la URL será algo como: http://localhost/GestFincas2.0-main/public/index.php
+¡Listo! Deberías ver la pantalla de inicio de sesión de GestFincas 2.0.
 🔑 Datos de Prueba para Iniciar Sesión
 
 El archivo SQL ya incluye un usuario de prueba para que puedas probar el sistema inmediatamente:

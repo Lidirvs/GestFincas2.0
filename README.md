@@ -80,8 +80,9 @@ http://localhost/GestFincas2.0/public/index.php
 
 El script SQL inicial despliega usuarios de prueba para validar los flujos del producto inmediatamente tras la instalación:
 
-Rol de Usuario,Nombre de Vivienda,Correo Electrónico (Login),Contraseña
-Vecino / Test,Planta 2-1B,mariapelaez@gmail.com,casacasa
+| Rol de Usuario | Nombre de Vivienda | Correo Electrónico (Login) | Contraseña |
+| :--- | :--- | :--- | :--- |
+| **Vecino / Test** | Planta 2-1B | `mariapelaez@gmail.com` | `casacasa` 
 
 (Recomendamos cambiar estas credenciales tras el primer inicio de sesión por motivos de auditoría).
 

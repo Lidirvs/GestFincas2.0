@@ -76,8 +76,12 @@ return [
 Arrancar la aplicación:Navega en tu navegador web a la ruta pública:
 http://localhost/GestFincas2.0/public/index.php
 
-## 🔑 Datos de Acceso (Test Environment)El script SQL inicial despliega usuarios de prueba para validar los flujos del producto inmediatamente tras la instalación:
+## 🔑 Datos de Acceso (Test Environment)
+
+El script SQL inicial despliega usuarios de prueba para validar los flujos del producto inmediatamente tras la instalación:
 Rol de UsuarioNombre de ViviendaCorreo Electrónico (Login)ContraseñaVecino / TestPlanta 2-1Bmariapelaez@gmail.comcasacasa
 (Recomendamos cambiar estas credenciales tras el primer inicio de sesión por motivos de auditoría).
 
-## 🤝 Contribución y LicenciaEste proyecto está distribuido bajo la licencia MIT. Eres libre de utilizarlo, modificarlo y distribuirlo comercialmente.Si deseas contribuir al desarrollo:Haz un Fork del repositorio.Crea una rama para tu feature (git checkout -b feature/NuevaFuncionalidad).Realiza tus commits (git commit -m 'feat: Añade integración con Stripe').Sube los cambios (git push origin feature/NuevaFuncionalidad) y abre un Pull Request.
+## 🤝 Contribución y Licencia
+
+Este proyecto está distribuido bajo la licencia MIT. Eres libre de utilizarlo, modificarlo y distribuirlo comercialmente.Si deseas contribuir al desarrollo:Haz un Fork del repositorio.Crea una rama para tu feature (git checkout -b feature/NuevaFuncionalidad).Realiza tus commits (git commit -m 'feat: Añade integración con Stripe').Sube los cambios (git push origin feature/NuevaFuncionalidad) y abre un Pull Request.

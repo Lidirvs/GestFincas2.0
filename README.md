@@ -54,3 +54,30 @@ git clone [https://github.com/tu-usuario/GestFincas2.0.git](https://github.com/t
 
 # Acceder al directorio del proyecto
 cd GestFincas2.0
+```
+### 3. Configuración de Base de DatosAccede a tu gestor de base de datos (ej. phpMyAdmin o DBeaver).Crea una base de datos vacía llamada exactamente: gestfincas.Importa el volcado inicial ejecutando o importando el archivo config/gestfincas.sql. Esto construirá el esquema y cargará datos semilla (seeders).
+
+### 4. Credenciales Seguras y Variables de EntornoPor políticas de seguridad, las credenciales nunca se suben al repositorio. Para configurar tu conexión local:
+```Bash
+# Duplica el archivo de ejemplo para crear tu configuración local
+cp config/config.php.example config/config.local.php
+```
+Edita config/config.local.php con los datos de tu entorno:
+PHP
+<?php
+return [
+    'host'    => 'localhost', // o 127.0.0.1
+    'db'      => 'gestfincas',
+    'user'    => 'root',      // Usuario de BD local
+    'pass'    => '',          // Contraseña de BD local
+    'charset' => 'utf8mb4'
+];
+?>
+Arrancar la aplicación:Navega en tu navegador web a la ruta pública:
+http://localhost/GestFincas2.0/public/index.php
+
+🔑 Datos de Acceso (Test Environment)El script SQL inicial despliega usuarios de prueba para validar los flujos del producto inmediatamente tras la instalación:
+Rol de UsuarioNombre de ViviendaCorreo Electrónico (Login)ContraseñaVecino / TestPlanta 2-1Bmariapelaez@gmail.comcasacasa
+(Recomendamos cambiar estas credenciales tras el primer inicio de sesión por motivos de auditoría).
+
+🤝 Contribución y LicenciaEste proyecto está distribuido bajo la licencia MIT. Eres libre de utilizarlo, modificarlo y distribuirlo comercialmente.Si deseas contribuir al desarrollo:Haz un Fork del repositorio.Crea una rama para tu feature (git checkout -b feature/NuevaFuncionalidad).Realiza tus commits (git commit -m 'feat: Añade integración con Stripe').Sube los cambios (git push origin feature/NuevaFuncionalidad) y abre un Pull Request.

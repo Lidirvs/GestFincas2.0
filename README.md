@@ -1,59 +1,56 @@
-GestFincas 2.0 es una aplicación web desarrollada en PHP bajo el patrón de arquitectura MVC (Modelo-Vista-Controlador). Permite la gestión de comunidades de vecinos, facilitando la administración de viviendas, usuarios (vecinos y presidentes) y el control de accesos mediante un sistema de validación por códigos.
+# 🏢 GestFincas 2.0
 
-🚀 Requisitos Previos
-Para ejecutar este proyecto en tu entorno local, necesitarás tener instalado:
+![PHP Version](https://img.shields.io/badge/PHP-8.0+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Architecture](https://img.shields.io/badge/Architecture-MVC-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-MVP-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-Un entorno de servidor local como XAMPP, WAMP, o MAMP.
-PHP 8.0 o superior.
-MySQL o MariaDB.
-Git (opcional, para el control de versiones).
-🛠️ Guía de Instalación Paso a Paso
-Sigue estos pasos exactamente en orden para desplegar el proyecto en tu máquina local:
+*Plataforma SaaS (B2B/B2C) orientada al sector PropTech para la digitalización, administración y gestión eficiente de comunidades de vecinos.*
 
-Paso 1: Descargar el proyecto
-Abre tu terminal o consola.
-Navega hasta la carpeta pública de tu servidor local (por ejemplo, htdocs en XAMPP o www en WAMP).
-Clona el repositorio ejecutando (asegúrate de reemplazar `tu-usuario` y `GestFincas2.0` con los datos de tu repositorio):
-git clone https://github.com/tu-usuario/GestFincas2.0.git
-(Si no usas Git, simplemente descarga el ZIP del proyecto y descomprímelo en esa misma carpeta).
+## 💡 Propuesta de Valor (PropTech)
 
-Paso 2: Crear y configurar la Base de Datos
-Abre el panel de control de tu servidor (ej. XAMPP) y asegúrate de que Apache y MySQL estén en ejecución.
-Ve a tu gestor de base de datos (por ejemplo, entra a http://localhost/phpmyadmin).
-Crea una nueva base de datos vacía llamada exactamente: gestfincas.
-Ve a la pestaña Importar y selecciona el archivo gestfincas.sql que se encuentra dentro de la carpeta config/ de este proyecto.
-Haz clic en "Importar" o "Continuar". Esto creará todas las tablas necesarias y cargará los datos de prueba.
-Paso 3: Configurar la conexión (Archivo Local)
-Por motivos de seguridad, las credenciales no se suben al repositorio. Debes crear tu archivo de configuración:
+**GestFincas 2.0** centraliza y moderniza la administración tradicional de fincas resolviendo los puntos de fricción más comunes en las comunidades residenciales. Nuestro producto ofrece:
 
-Ve a la carpeta config/ del proyecto.
-Localiza el archivo llamado config.php.example.
-Duplica ese archivo y renombra la copia como config.local.php.
-Abre config.local.php en tu editor de código y pon las credenciales de tu base de datos local (por defecto en XAMPP el usuario es "root" y la contraseña se deja vacía):
-PHP
+- **Gestión Integral de Viviendas:** Control centralizado del censo de propietarios e inquilinos.
+- **Control de Accesos Seguro:** Sistema de validación de identidades mediante códigos únicos para residentes y juntas directivas.
+- **Comunicación Transparente:** Un canal directo que elimina los cuellos de botella informativos entre los vecinos y la figura del presidente o administrador.
 
-'localhost', // o 127.0.0.1 'db' => 'gestfincas', // Nombre de la base de datos 'user' => 'root', // Tu usuario de MySQL 'pass' => '', // Tu contraseña de MySQL 'charset' => 'utf8mb4', ]; ?>
-Paso 4: Arrancar la aplicación
-Abre tu navegador web. Accede a la ruta pública del proyecto. Dependiendo del nombre de la carpeta, la URL será algo como: http://localhost/GestFincas2.0-main/public/index.php
-¡Listo! Deberías ver la pantalla de inicio de sesión de GestFincas 2.0.
-🔑 Datos de Prueba para Iniciar Sesión
+## 🛠️ Stack Tecnológico
 
-El archivo SQL ya incluye un usuario de prueba para que puedas probar el sistema inmediatamente:
+La plataforma está construida priorizando el rendimiento, la escalabilidad y los estándares de desarrollo web:
 
-Nombre de la Vivienda: Planta 2-1B
+- **Backend:** PHP Nativo (v8.0 o superior).
+- **Base de Datos:** MySQL / MariaDB (Relacional).
+- **Frontend:** HTML5, CSS3 y Vanilla JavaScript (Enfoque ligero, sin dependencias pesadas).
+- **Patrón de Arquitectura:** MVC (Modelo-Vista-Controlador).
 
-Correo Electrónico: mariapelaez@gmail.com
+## 🏗️ Arquitectura del Sistema
 
-Contraseña: casacasa
+El proyecto sigue una separación estricta de responsabilidades (SoC) basada en el patrón MVC, garantizando un código mantenible y modularizado:
 
-🏗️ Estructura del Proyecto (Arquitectura MVC) /config: Archivos de configuración de DB, enrutador y scripts SQL.
+- 📂 `/config/`: Configuraciones críticas del entorno (Enrutador, credenciales de DB) y scripts de persistencia de datos (SQL).
+- 📂 `/public/`: Document Root de la aplicación. Contiene el Front Controller (`index.php`) y recursos estáticos (`/assets`). Todo el tráfico web debe apuntar aquí por seguridad.
+- 📂 `/src/`: Directorio principal del Core de negocio:
+  - `controllers/`: Orquestación lógica, manejo de *requests* HTTP y control de sesiones (ej. `AuthController.php`).
+  - `models/`: Abstracción de datos, sanitización y consultas directas a la base de datos (ej. `UsuarioModel.php`).
+  - `views/`: Renderizado de interfaces de usuario y componentes visuales reutilizables.
 
-/public: Contiene el punto de entrada principal (index.php) y los recursos estáticos (assets/ con CSS e imágenes).
+## 🚀 Guía de Inicio Rápido (Quick Start)
 
-/src: Código fuente de la app:
+### 1. Requisitos Previos
+Asegúrate de contar con el siguiente stack en tu entorno local:
+- Entorno de servidor local (XAMPP, WAMP, MAMP o Docker).
+- PHP 8.0+
+- Servidor MySQL / MariaDB activo.
+- Git.
 
-controllers/: Manejan la lógica y peticiones (ej. AuthController.php).
+### 2. Despliegue Local
+Abre tu terminal y ejecuta los siguientes comandos en la carpeta pública de tu servidor (ej. `htdocs` o `www`):
 
-models/: Interactúan con la base de datos (ej. UsuarioModel.php).
+```bash
+# Clonar el repositorio
+git clone [https://github.com/tu-usuario/GestFincas2.0.git](https://github.com/tu-usuario/GestFincas2.0.git)
 
-views/: Interfaces de usuario y componentes HTML.
+# Acceder al directorio del proyecto
+cd GestFincas2.0
